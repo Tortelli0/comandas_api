@@ -8,7 +8,29 @@ from app import FuncionarioDAO
 from app import ClienteDAO
 from app import ProdutoDAO
 
-app = FastAPI()
+from contextlib import asynccontextmanager
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # executa no startup
+    print("API has started")
+
+    # cria, caso não existam, as tabelas de todos os modelos que encontrar na aplicação (importados)
+    import db
+    await db.criaTabelas()
+
+    yield
+
+    # executa no shutdown
+    print("API is shutting down")
+
+# cria a aplicação FastAPI com o contexto de vida
+app = FastAPI(lifespan=lifespan)
+
+# rota padrão
+@app.get("/")
+async def root():
+    return {"detail": "API Comandas", "Swagger UI": "http://127.0.0.1:8000/docs", "ReDoc":
+"http://127.0.0.1:8000/redoc"}
 
 # mapeamento das rotas/endpoints
 app.include_router(FuncionarioDAO.router)
@@ -17,8 +39,3 @@ app.include_router(ProdutoDAO.router)
 
 if __name__ == "__main__":
     uvicorn.run('main:app', host=HOST, port=int(PORT), reload=RELOAD)
-
-# rota padrão
-@app.get("/")
-def root():
-    return {"detail":"API Pastelaria", "Swagger UI": "http://127.0.0.1:8000/docs", "ReDoc": "http://127.0.0.1:8000/redoc" }
