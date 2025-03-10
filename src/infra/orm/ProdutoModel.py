@@ -13,8 +13,8 @@ class ProdutoDB(db.Base):
     valor_unitario = Column(VARCHAR(20), nullable=False)
 
 
-def __init__(self, nome, descricao, valor_unitario):
-    self.nome = nome
-    self.descricao = descricao
-    # self.foto = foto
-    self.valor_unitario = valor_unitario
+    def __init__(self, id_produto, nome, descricao, valor_unitario):
+        self.id_produto = id_produto
+        self.nome = nome
+        self.descricao = descricao
+        self.valor_unitario = valor_unitario

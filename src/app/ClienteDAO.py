@@ -86,6 +86,7 @@ async def put_cliente(id: int, corpo: Cliente):
     finally:
         session.close()
 
+@router.delete("/cliente/{id}", tags=["Cliente"])
 async def delete_cliente(id: int):
     try:
         session = db.Session()
@@ -94,7 +95,7 @@ async def delete_cliente(id: int):
         session.delete(dados)
         session.commit()
 
-        return {"id": dados.id_funcionario}, 200
+        return {"id": dados.id_cliente}, 200
 
     except Exception as e:
         session.rollback()
