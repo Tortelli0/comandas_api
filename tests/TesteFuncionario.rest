@@ -1,11 +1,26 @@
+@token =
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhYmMiLCJleHAiOjE3NDIxOTEwOTF9.ISNUmWR_B5QiUI-zDL1uRvn5_Hy5h0RaE5-s8HNeRuY
+
 ### Verbo GET – listar todos
 GET http://localhost:8000/funcionario/ HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhYmMiLCJleHAiOjE3NDIxOTEwOTF9.ISNUmWR_B5QiUI-zDL1uRvn5_Hy5h0RaE5-s8HNeRuY
+
+### Verbo GET – listar todos
+curl -X 'GET' 'http://localhost:8000/funcionario/' \
+        -H 'accept: application/json' \
+        -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhYmMiLCJleHAiOjE3NDIxOTEwOTF9.ISNUmWR_B5QiUI-zDL1uRvn5_Hy5h0RaE5-s8HNeRuY'
+
+### Verbo GET – listar todos
+GET http://localhost:8000/funcionario/ HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhYmMiLCJleHAiOjE3NDIxOTEwOTF9.ISNUmWR_B5QiUI-zDL1uRvn5_Hy5h0RaE5-s8HNeRuY
 
 ### Verbo GET – listar um
 GET http://localhost:8000/funcionario/10 HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhYmMiLCJleHAiOjE3NDIxOTEwOTF9.ISNUmWR_B5QiUI-zDL1uRvn5_Hy5h0RaE5-s8HNeRuY
 
 ### Verbo POST – adicionar
 POST http://127.0.0.1:8000/funcionario/ HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhYmMiLCJleHAiOjE3NDIxOTEwOTF9.ISNUmWR_B5QiUI-zDL1uRvn5_Hy5h0RaE5-s8HNeRuY
 content-type: application/json
 
 {
@@ -19,6 +34,8 @@ content-type: application/json
 
 ### Verbo PUT – atualiza
 PUT http://127.0.0.1:8000/funcionario/2 HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhYmMiLCJleHAiOjE3NDIxOTEwOTF9.ISNUmWR_B5QiUI-zDL1uRvn5_Hy5h0RaE5-s8HNeRuY
 
 ### Verbo DELETE - excluir
 DELETE http://127.0.0.1:8000/funcionario/3 HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhYmMiLCJleHAiOjE3NDIxOTEwOTF9.ISNUmWR_B5QiUI-zDL1uRvn5_Hy5h0RaE5-s8HNeRuY

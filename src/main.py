@@ -4,6 +4,7 @@ import uvicorn
 # Eduardo Tortelli
 
 # import das classes com as rotas/endpoints
+import security
 from app import FuncionarioDAO
 from app import ClienteDAO
 from app import ProdutoDAO
@@ -29,10 +30,10 @@ app = FastAPI(lifespan=lifespan)
 # rota padrão
 @app.get("/")
 async def root():
-    return {"detail": "API Comandas", "Swagger UI": "http://127.0.0.1:8000/docs", "ReDoc":
-"http://127.0.0.1:8000/redoc"}
+    return {"detail": "API Comandas", "Swagger UI": "http://127.0.0.1:8000/docs", "ReDoc": "http://127.0.0.1:8000/redoc"}
 
 # mapeamento das rotas/endpoints
+app.include_router(security.router)
 app.include_router(FuncionarioDAO.router)
 app.include_router(ClienteDAO.router)
 app.include_router(ProdutoDAO.router)

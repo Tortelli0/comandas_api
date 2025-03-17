@@ -3,9 +3,14 @@ from infra.orm.FuncionarioModel import FuncionarioDB
 from fastapi import APIRouter
 from domain.entities.Funcionario import Funcionario
 
+#import de segurança
+from typing import Annotated
+from fastapi import Depends
+from security import get_current_active_user, User
+
 # Eduardo Tortelli
 
-router = APIRouter()
+router = APIRouter(dependencies=[Depends(get_current_active_user)])
 
 # Criar as rotas/endpoints: GET, POST, PUT, DELETE
 

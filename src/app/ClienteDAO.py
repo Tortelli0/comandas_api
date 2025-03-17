@@ -5,9 +5,14 @@ from domain.entities.Cliente import Cliente
 import db
 from infra.orm.ClienteModel import ClienteDB
 
+#import de segurança
+from typing import Annotated
+from fastapi import Depends
+from security import get_current_active_user, User
+
 # Eduardo Tortelli
 
-router = APIRouter()
+router = APIRouter(dependencies=[Depends(get_current_active_user)])
 
 # Criar os endpoints de Cliente: GET, POST, PUT, DELETE
 
